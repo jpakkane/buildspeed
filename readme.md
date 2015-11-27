@@ -36,9 +36,7 @@ CMake
 
 ## Build times on Raspberry Pi 2
 
-| | time|
-|-|-----|
-|CMake | 2m 20s|
-|Meson | 1m 36s |
-|Meson unity build | 39s |
+    CMake               2m 20s
+    Meson               1m 36s
+    Meson unity build      39s
 
