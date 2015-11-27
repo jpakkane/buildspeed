@@ -1,0 +1,109 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+                      "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<!-- GDBus 2.42.0 -->
+<node>
+  <interface name="org.freedesktop.DBus.Properties">
+    <method name="Get">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="s" name="property_name" direction="in"/>
+      <arg type="v" name="value" direction="out"/>
+    </method>
+    <method name="GetAll">
+      <arg type="s" name="interface_name" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+      <arg type="a{sv}" name="properties" direction="out"/>
+    </method>
+    <method name="Set">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="s" name="property_name" direction="in"/>
+      <arg type="v" name="value" direction="in"/>
+    </method>
+    <signal name="PropertiesChanged">
+      <arg type="s" name="interface_name"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="changed_properties"/>
+      <arg type="as" name="invalidated_properties"/>
+    </signal>
+  </interface>
+  <interface name="org.freedesktop.DBus.Introspectable">
+    <method name="Introspect">
+      <arg type="s" name="xml_data" direction="out"/>
+    </method>
+  </interface>
+  <interface name="org.freedesktop.DBus.Peer">
+    <method name="Ping"/>
+    <method name="GetMachineId">
+      <arg type="s" name="machine_uuid" direction="out"/>
+    </method>
+  </interface>
+  <interface name="org.freedesktop.URfkill">
+    <method name="Block">
+      <arg type="u" name="type" direction="in">
+      </arg>
+      <arg type="b" name="block" direction="in">
+      </arg>
+      <arg type="b" name="ret" direction="out">
+      </arg>
+    </method>
+    <method name="BlockIdx">
+      <arg type="u" name="index" direction="in">
+      </arg>
+      <arg type="b" name="block" direction="in">
+      </arg>
+      <arg type="b" name="ret" direction="out">
+      </arg>
+    </method>
+    <method name="EnumerateDevices">
+      <arg type="ao" name="array" direction="out">
+      </arg>
+    </method>
+    <method name="IsFlightMode">
+      <arg type="b" name="is_flight_mode" direction="out">
+      </arg>
+    </method>
+    <method name="FlightMode">
+      <arg type="b" name="block" direction="in">
+      </arg>
+      <arg type="b" name="ret" direction="out">
+      </arg>
+    </method>
+    <method name="IsInhibited">
+      <arg type="b" name="is_inhibited" direction="out">
+      </arg>
+    </method>
+    <method name="Inhibit">
+      <arg type="s" name="reason" direction="in">
+      </arg>
+      <arg type="u" name="inhibit_cookie" direction="out">
+      </arg>
+    </method>
+    <method name="Uninhibit">
+      <arg type="u" name="inhibit_cookie" direction="in">
+      </arg>
+    </method>
+    <signal name="DeviceAdded">
+      <arg type="o" name="device">
+      </arg>
+    </signal>
+    <signal name="DeviceRemoved">
+      <arg type="o" name="device">
+      </arg>
+    </signal>
+    <signal name="DeviceChanged">
+      <arg type="o" name="device">
+      </arg>
+    </signal>
+    <signal name="FlightModeChanged">
+      <arg type="b" name="flight_mode">
+      </arg>
+    </signal>
+    <signal name="UrfkeyPressed">
+      <arg type="i" name="keycode">
+      </arg>
+    </signal>
+    <property type="s" name="DaemonVersion" access="read">
+    </property>
+    <property type="b" name="KeyControl" access="read">
+    </property>
+  </interface>
+</node>
