@@ -2,7 +2,7 @@ project('infodumper', 'cpp')
 
 qt5m = import('qt5')
 
-add_global_arguments('-std=c++11', '-DQT_NO_KEYWORDS', language : 'cpp')
+add_global_arguments('-DQT_NO_KEYWORDS', language : 'cpp')
 
 qt5 = dependency('qt5', modules : ['DBus'])
 glib = dependency('glib-2.0')
